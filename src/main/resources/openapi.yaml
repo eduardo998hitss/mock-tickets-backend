@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: Mock Tickets API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/tickets:
+    post:
+      summary: Create ticket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TicketCreateRequest'
+            examples:
+              createExample:
+                value:
+                  company: "Ambev S.A."
+                  category: "Cadastro"
+                  subject: "teste"
+                  local: "Belo Horizonte"
+                  ticket: "123321"
+                  attachment: "C:\\fakepath\\Planilha sem título.xlsx"
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketResponse'
+    get:
+      summary: List tickets
+      parameters:
+        - in: query
+          name: page
+          schema: { type: integer, default: 0 }
+        - in: query
+          name: size
+          schema: { type: integer, default: 10 }
+        - in: query
+          name: q
+          schema: { type: string }
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageTicketResponse'
+  /api/tickets/{id}:
+    get:
+      summary: Get ticket by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketResponse'
+        '404':
+          description: not found
+components:
+  schemas:
+    TicketCreateRequest:
+      type: object
+      required: [company, category, subject, local, ticket]
+      properties:
+        company: { type: string }
+        category: { type: string }
+        subject: { type: string }
+        local: { type: string }
+        ticket: { type: string }
+        attachment: { type: string, description: "Path or filename" }
+    TicketResponse:
+      allOf:
+        - $ref: '#/components/schemas/TicketCreateRequest'
+        - type: object
+          properties:
+            id: { type: string, format: uuid }
+            status: { type: string, enum: [OPEN, IN_PROGRESS, CLOSED], default: OPEN }
+            createdAt: { type: string, format: date-time }
+    PageTicketResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/TicketResponse' }
+        page: { type: integer }
+        size: { type: integer }
+        total: { type: integer }

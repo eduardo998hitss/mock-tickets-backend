@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: mock-tickets-backend
+server:
+  port: 8080

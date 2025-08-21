@@ -1,0 +1,3 @@
+mock:
+  latencyMs: 250
+  errorRate: 0
