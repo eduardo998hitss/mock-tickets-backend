@@ -1,24 +1,8 @@
-# Maven
 /target/
+/bin/
 /out/
 /dist/
-
-# IDEs
-.project
-.classpath
-.settings/
-/*.iml
 .idea/
 .vscode/
-
-# Compilados / temporários
-/bin/
-*.log
-*.patch
-*.orig
-*.rej
-.DS_Store
-Thumbs.db
-
-# (se algum dia juntar front)
-node_modules/
+.settings/
+*.iml
