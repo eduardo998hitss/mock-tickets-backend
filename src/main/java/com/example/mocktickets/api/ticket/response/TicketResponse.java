@@ -1,4 +1,4 @@
-package com.example.mocktickets.dto;
+package com.example.mocktickets.api.ticket.response;
 
 import java.time.Instant;
 

@@ -1,8 +1,8 @@
 package com.example.mocktickets.service;
 
-import com.example.mocktickets.dto.PageResponse;
-import com.example.mocktickets.dto.TicketCreateRequest;
-import com.example.mocktickets.dto.TicketResponse;
+import com.example.mocktickets.api.common.PageResponse;
+import com.example.mocktickets.api.ticket.request.TicketCreateRequest;
+import com.example.mocktickets.api.ticket.response.TicketResponse;
 
 public interface TicketService {
     TicketResponse create(TicketCreateRequest req);

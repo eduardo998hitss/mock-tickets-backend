@@ -1,9 +1,9 @@
-package com.example.mocktickets.api;
+package com.example.mocktickets.api.ticket;
 
-import com.example.mocktickets.dto.PageResponse;
-import com.example.mocktickets.dto.TicketCreateRequest;
-import com.example.mocktickets.dto.TicketResponse;
-import com.example.mocktickets.dto.TicketStatusUpdateRequest;
+import com.example.mocktickets.api.common.PageResponse;
+import com.example.mocktickets.api.ticket.request.TicketCreateRequest;
+import com.example.mocktickets.api.ticket.request.TicketStatusUpdateRequest;
+import com.example.mocktickets.api.ticket.response.TicketResponse;
 import com.example.mocktickets.service.TicketService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

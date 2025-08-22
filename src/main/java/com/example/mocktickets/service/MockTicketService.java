@@ -1,9 +1,10 @@
 package com.example.mocktickets.service;
 
+import com.example.mocktickets.api.common.PageResponse;
+import com.example.mocktickets.api.ticket.request.TicketCreateRequest;
+import com.example.mocktickets.api.ticket.response.TicketResponse;
 import com.example.mocktickets.config.MockBehavior;
-import com.example.mocktickets.dto.PageResponse;
-import com.example.mocktickets.dto.TicketCreateRequest;
-import com.example.mocktickets.dto.TicketResponse;
+
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

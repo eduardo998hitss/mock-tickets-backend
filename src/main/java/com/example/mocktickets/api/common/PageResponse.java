@@ -1,4 +1,4 @@
-package com.example.mocktickets.dto;
+package com.example.mocktickets.api.common;
 
 import java.util.List;
 
