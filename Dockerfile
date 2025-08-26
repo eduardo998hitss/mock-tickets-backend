@@ -1,12 +1,12 @@
 # ===== Build =====
 FROM maven:3.9-eclipse-temurin-17 AS build
-# usa Java 17, igual ao pom
+
 WORKDIR /app
 COPY pom.xml .
 RUN mvn -q -DskipTests dependency:go-offline
 COPY src ./src
 
-# 👇 repackage garante MANIFEST e launcher do Spring Boot
+# repackage garante MANIFEST e launcher do Spring Boot
 RUN mvn -q -DskipTests clean package spring-boot:repackage
 
 # ===== Runtime =====
